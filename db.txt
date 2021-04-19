@@ -1,0 +1,5 @@
+database
+users -> email, password, name, dob, gender, id
+posts-> id, title, post, user_id
+comments-> id, commenter_id, comments, post_id
+votes-> id, voter_id, post_id
