@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mazhar.microblog.model.BlogPost;
 import com.mazhar.microblog.model.dto.PostDTO;
-import com.mazhar.microblog.service.MicroBlogGenericService;
+import com.mazhar.microblog.service.BlogPostService;
 import com.mazhar.microblog.util.AppResponse;
 
 /**
@@ -35,11 +35,23 @@ import com.mazhar.microblog.util.AppResponse;
 public class BlogPostResource {
 
 	private Logger log = LoggerFactory.getLogger(BlogPostResource.class);
-	private MicroBlogGenericService<PostDTO, BlogPost> service;
+	private BlogPostService service;
 
 	@Autowired
-	public void setInventoryCrudService(MicroBlogGenericService<PostDTO, BlogPost> service) {
+	public void setInventoryCrudService(BlogPostService service) {
 		this.service = service;
+	}
+
+	@PostMapping("/")
+	ResponseEntity<?> createPost(@RequestBody BlogPost category) {
+		try {
+			service.createPost(category);
+			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
+					HttpStatus.OK);
+		}
 	}
 
 	@GetMapping("/")
@@ -50,7 +62,7 @@ public class BlogPostResource {
 	@GetMapping("/{id}")
 	ResponseEntity<?> getPostById(@PathVariable(name = "id") UUID id) {
 		try {
-			PostDTO category = (PostDTO) service.getSingleItemById(id);
+			PostDTO category = (PostDTO) service.getPostById(id);
 			return new ResponseEntity<Object>(category, new HttpHeaders(), HttpStatus.OK);
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -59,11 +71,11 @@ public class BlogPostResource {
 		}
 	}
 
-	@PostMapping("/")
-	ResponseEntity<?> createPost(@RequestBody BlogPost category) {
+	@GetMapping("/user/{userid}")
+	ResponseEntity<?> getPostByUser(@PathVariable(name = "userid") UUID userid) {
 		try {
-			service.saveEntity(category);
-			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
+			
+			return new ResponseEntity<Object>(service.getPostsByUser(userid), new HttpHeaders(), HttpStatus.OK);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
@@ -71,6 +83,7 @@ public class BlogPostResource {
 		}
 	}
 
+	
 	@DeleteMapping("/{id}")
 	ResponseEntity<?> deletePost(@PathVariable(name = "id") UUID id) {
 		try {

@@ -34,7 +34,7 @@ public class Comment extends Auditable<UUID> {
 	@Column(name = "comment")
 	private String commentText;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "blog_user_id")
+	@JoinColumn(name = "commenter_id")
 	private BlogUser commenter;
 	@ManyToOne
 	@JoinColumn(name = "post_id")

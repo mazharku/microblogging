@@ -29,12 +29,13 @@ import lombok.Setter;
 public class Vote extends Auditable<UUID>{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "vote", nullable = false)
+	@Column(name = "vote_id", nullable = false)
 	private UUID id;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "blog_user_id")
+	@JoinColumn(name = "voter_id")
 	private BlogUser voter;
 	@ManyToOne
 	@JoinColumn(name = "post_id")
 	private BlogPost post;
+	private boolean vote;
 }
