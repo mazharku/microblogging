@@ -25,3 +25,254 @@ Make sure a Liquibase changelog is present at the configured path.
 2021-04-20 14:51:18.469 DEBUG 3440 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
 2021-04-20 14:51:18.510 DEBUG 3440 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
 2021-04-20 14:51:18.551 DEBUG 3440 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-20 20:20:39.510  WARN 13844 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.LockException: liquibase.exception.DatabaseException: Error executing SQL SELECT LOCKED FROM microblog.databasechangeloglock WHERE ID=1: ERROR: relation "microblog.databasechangeloglock" does not exist
+  Position: 20
+2021-04-20 20:20:39.611 ERROR 13844 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.LockException: liquibase.exception.DatabaseException: Error executing SQL SELECT LOCKED FROM microblog.databasechangeloglock WHERE ID=1: ERROR: relation "microblog.databasechangeloglock" does not exist
+  Position: 20
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.mazhar.microblog.Application.main(Application.java:10) ~[classes/:na]
+Caused by: liquibase.exception.LockException: liquibase.exception.DatabaseException: Error executing SQL SELECT LOCKED FROM microblog.databasechangeloglock WHERE ID=1: ERROR: relation "microblog.databasechangeloglock" does not exist
+  Position: 20
+	at liquibase.lockservice.StandardLockService.acquireLock(StandardLockService.java:295) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.lockservice.StandardLockService.waitForLock(StandardLockService.java:213) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:183) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:178) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:368) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:316) ~[liquibase-core-3.10.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 19 common frames omitted
+Caused by: liquibase.exception.DatabaseException: Error executing SQL SELECT LOCKED FROM microblog.databasechangeloglock WHERE ID=1: ERROR: relation "microblog.databasechangeloglock" does not exist
+  Position: 20
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:100) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.query(JdbcExecutor.java:173) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.query(JdbcExecutor.java:181) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.queryForObject(JdbcExecutor.java:189) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.queryForObject(JdbcExecutor.java:204) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.queryForObject(JdbcExecutor.java:199) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.lockservice.StandardLockService.acquireLock(StandardLockService.java:254) ~[liquibase-core-3.10.3.jar:na]
+	... 26 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "microblog.databasechangeloglock" does not exist
+  Position: 20
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:236) ~[postgresql-42.2.19.jar:42.2.19]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeQuery(ProxyStatement.java:111) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeQuery(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$QueryStatementCallback.doInStatement(JdbcExecutor.java:493) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:87) ~[liquibase-core-3.10.3.jar:na]
+	... 32 common frames omitted
+
+2021-04-20 20:21:52.575  WARN 15180 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-20 20:21:52.825 DEBUG 15180 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2021-04-20 20:21:53.301 DEBUG 15180 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-20 20:21:53.399 DEBUG 15180 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-20 20:21:53.445 DEBUG 15180 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-20 20:21:53.459 DEBUG 15180 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-20 20:23:17.514  INFO 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-20 20:23:17.515 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-04-20 20:23:17.521 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-04-20 20:23:17.522 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-04-20 20:23:17.525 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5a885113
+2021-04-20 20:23:17.526 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@827f9c8
+2021-04-20 20:23:17.528 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-04-20 20:23:17.529  INFO 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-04-20 20:23:17.556 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/", parameters={}
+2021-04-20 20:23:17.575 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ParameterizableViewController [view="forward:/swagger-ui/index.html"]
+2021-04-20 20:23:17.595 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2021-04-20 20:23:17.595 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2021-04-20 20:23:17.599 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [/swagger-ui/index.html]
+2021-04-20 20:23:17.609 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/swagger-ui/index.html", parameters={}
+2021-04-20 20:23:17.613 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.655 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2021-04-20 20:23:17.658 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:17.778 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/springfox.css?v=3.0.0", parameters={masked}
+2021-04-20 20:23:17.779 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.784 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css?v=3.0.0", parameters={masked}
+2021-04-20 20:23:17.790 DEBUG 15180 --- [http-nio-8085-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js?v=3.0.0", parameters={masked}
+2021-04-20 20:23:17.792 DEBUG 15180 --- [http-nio-8085-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.795 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.799 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:17.810 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:17.812 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js?v=3.0.0", parameters={masked}
+2021-04-20 20:23:17.815 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.815 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/springfox.js?v=3.0.0", parameters={masked}
+2021-04-20 20:23:17.816 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:17.837 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:17.842 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:17.864 DEBUG 15180 --- [http-nio-8085-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:18.216 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/ui", parameters={}
+2021-04-20 20:23:18.218 DEBUG 15180 --- [http-nio-8085-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2021-04-20 20:23:18.248 DEBUG 15180 --- [http-nio-8085-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png?v=3.0.0", parameters={masked}
+2021-04-20 20:23:18.249 DEBUG 15180 --- [http-nio-8085-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/springfox-swagger-ui/]]
+2021-04-20 20:23:18.255 DEBUG 15180 --- [http-nio-8085-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:18.259 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:23:18.310 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.UiConfiguration@2d3f83f8]
+2021-04-20 20:23:18.332 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:18.338 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/security", parameters={}
+2021-04-20 20:23:18.338 DEBUG 15180 --- [http-nio-8085-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2021-04-20 20:23:18.339 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:23:18.345 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.SecurityConfiguration@302b368a]
+2021-04-20 20:23:18.349 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:18.359 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources", parameters={}
+2021-04-20 20:23:18.360 DEBUG 15180 --- [http-nio-8085-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2021-04-20 20:23:18.362 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:23:18.364 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@30873989]]
+2021-04-20 20:23:18.372 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:18.458 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2021-04-20 20:23:18.459 DEBUG 15180 --- [http-nio-8085-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.oas.web.OpenApiControllerWebMvc#getDocumentation(String, HttpServletRequest)
+2021-04-20 20:23:18.726 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, */*] and supported [application/json, application/hal+json]
+2021-04-20 20:23:18.730 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@78f510ba]
+2021-04-20 20:23:18.740 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:23:57.667 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/f82b99d1-1628-4ac6-918d-1b113f6bab2a", parameters={}
+2021-04-20 20:23:57.669 DEBUG 15180 --- [http-nio-8085-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-20 20:23:57.781 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:23:57.782 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-04-20 20:23:57.784 DEBUG 15180 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:26:59.339 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/", parameters={}
+2021-04-20 20:26:59.341 DEBUG 15180 --- [http-nio-8085-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPosts()
+2021-04-20 20:26:59.546 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:26:59.546 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-04-20 20:26:59.549 DEBUG 15180 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:27:16.165 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/f82b99d1-1628-4ac6-918d-1b113f6bab2a", parameters={}
+2021-04-20 20:27:16.167 DEBUG 15180 --- [http-nio-8085-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPostById(UUID)
+2021-04-20 20:27:20.120 ERROR 15180 --- [http-nio-8085-exec-9] c.m.m.webService.BlogPostResource        : No Post found with this id
+2021-04-20 20:27:20.128 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:27:20.129 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=false, message=No Post found with this id}]
+2021-04-20 20:27:20.131 DEBUG 15180 --- [http-nio-8085-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:27:54.558 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/user/f82b99d1-1628-4ac6-918d-1b113f6bab2a", parameters={}
+2021-04-20 20:27:54.559 DEBUG 15180 --- [http-nio-8085-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPostByUser(UUID)
+2021-04-20 20:27:58.754 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:27:58.755 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-04-20 20:27:58.757 DEBUG 15180 --- [http-nio-8085-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:28:40.867 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/f82b99d1-1628-4ac6-918d-1b113f6bab2a", parameters={}
+2021-04-20 20:28:40.869 DEBUG 15180 --- [http-nio-8085-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:28:40.896 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:28:40.897 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-20 20:28:40.899 DEBUG 15180 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:29:43.934 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
+2021-04-20 20:29:43.935 DEBUG 15180 --- [http-nio-8085-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
+2021-04-20 20:29:44.020 DEBUG 15180 --- [http-nio-8085-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@8240141]
+2021-04-20 20:29:44.189 ERROR 15180 --- [http-nio-8085-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: insert or update on table "blog_post" violates foreign key constraint "fkldlj4xlvmdvmvpbuop7884lhy"
+  Detail: Key (blog_user_id)=(2f08da3e-66d1-4ac7-8803-aa1e63d78fb8) is not present in table "blog_user".
+2021-04-20 20:29:44.211 ERROR 15180 --- [http-nio-8085-exec-3] c.m.m.webService.BlogPostResource        : could not execute statement; SQL [n/a]; constraint [fkldlj4xlvmdvmvpbuop7884lhy]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2021-04-20 20:29:44.212 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:29:44.212 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=false, message=could not execute statement; SQL [n/a]; constraint [fkldlj4xlvmdvmvpbuop7884l (truncated)...]
+2021-04-20 20:29:44.214 DEBUG 15180 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:33:05.281 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/votes/", parameters={}
+2021-04-20 20:33:05.282 DEBUG 15180 --- [http-nio-8085-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogUserResource#createUser(BlogUser)
+2021-04-20 20:33:05.288 DEBUG 15180 --- [http-nio-8085-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogUser@2b9dd9ba]
+2021-04-20 20:33:05.329 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:33:05.330 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
+2021-04-20 20:33:05.331 DEBUG 15180 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:33:45.898 DEBUG 15180 --- [http-nio-8085-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
+2021-04-20 20:33:45.899 DEBUG 15180 --- [http-nio-8085-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
+2021-04-20 20:33:45.902 DEBUG 15180 --- [http-nio-8085-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@12ebba67]
+2021-04-20 20:33:45.920 DEBUG 15180 --- [http-nio-8085-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:33:45.921 DEBUG 15180 --- [http-nio-8085-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
+2021-04-20 20:33:45.922 DEBUG 15180 --- [http-nio-8085-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:37:43.158  WARN 7184 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-20 20:37:43.382 DEBUG 7184 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2021-04-20 20:37:43.881 DEBUG 7184 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-20 20:37:43.983 DEBUG 7184 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-20 20:37:44.029 DEBUG 7184 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-20 20:37:44.046 DEBUG 7184 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-20 20:39:16.432  INFO 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-20 20:39:16.433 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-04-20 20:39:16.434 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-04-20 20:39:16.434 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-04-20 20:39:16.440 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1d2d3bc2
+2021-04-20 20:39:16.445 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@42141c59
+2021-04-20 20:39:16.447 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-04-20 20:39:16.447  INFO 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2021-04-20 20:39:16.474 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/comments/", parameters={}
+2021-04-20 20:39:16.488 DEBUG 7184 --- [http-nio-8085-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#makeAComment(Comment)
+2021-04-20 20:39:16.665 DEBUG 7184 --- [http-nio-8085-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.Comment@7f4beb6d]
+2021-04-20 20:39:16.957 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:39:16.969 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
+2021-04-20 20:39:17.014 DEBUG 7184 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:39:44.858 DEBUG 7184 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:39:44.861 DEBUG 7184 --- [http-nio-8085-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-20 20:39:45.133 DEBUG 7184 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:39:45.135 DEBUG 7184 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@3d8060a7]]
+2021-04-20 20:39:45.175 DEBUG 7184 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:40:14.543 DEBUG 7184 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:40:14.559 DEBUG 7184 --- [http-nio-8085-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:40:14.579 DEBUG 7184 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:40:14.580 DEBUG 7184 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-20 20:40:14.587 DEBUG 7184 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:40:40.290 DEBUG 7184 --- [http-nio-8085-exec-4] o.s.web.servlet.DispatcherServlet        : PATCH "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5/a9cd9626-fe08-402b-adf0-d60bb7a8fb36", parameters={}
+2021-04-20 20:40:40.292 DEBUG 7184 --- [http-nio-8085-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#updateVote(UUID, UUID)
+2021-04-20 20:40:40.365 DEBUG 7184 --- [http-nio-8085-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:40:40.365 DEBUG 7184 --- [http-nio-8085-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [true]
+2021-04-20 20:40:40.367 DEBUG 7184 --- [http-nio-8085-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:41:01.013 DEBUG 7184 --- [http-nio-8085-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:41:01.014 DEBUG 7184 --- [http-nio-8085-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:41:01.018 DEBUG 7184 --- [http-nio-8085-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:41:01.019 DEBUG 7184 --- [http-nio-8085-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-20 20:41:01.022 DEBUG 7184 --- [http-nio-8085-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:41:11.905 DEBUG 7184 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : PATCH "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5/a9cd9626-fe08-402b-adf0-d60bb7a8fb36", parameters={}
+2021-04-20 20:41:11.906 DEBUG 7184 --- [http-nio-8085-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#updateVote(UUID, UUID)
+2021-04-20 20:41:11.942 DEBUG 7184 --- [http-nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:41:11.943 DEBUG 7184 --- [http-nio-8085-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [true]
+2021-04-20 20:41:11.946 DEBUG 7184 --- [http-nio-8085-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:41:25.754 DEBUG 7184 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:41:25.756 DEBUG 7184 --- [http-nio-8085-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:41:25.762 DEBUG 7184 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:41:25.763 DEBUG 7184 --- [http-nio-8085-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-20 20:41:25.765 DEBUG 7184 --- [http-nio-8085-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:42:45.920  WARN 13888 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-20 20:42:46.152 DEBUG 13888 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2021-04-20 20:42:46.687 DEBUG 13888 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-20 20:42:46.779 DEBUG 13888 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-20 20:42:46.823 DEBUG 13888 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-20 20:42:46.844 DEBUG 13888 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-20 20:43:08.903  INFO 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-20 20:43:08.904 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-04-20 20:43:08.905 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-04-20 20:43:08.906 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-04-20 20:43:08.909 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@29307ea4
+2021-04-20 20:43:08.910 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@64ee4b14
+2021-04-20 20:43:08.912 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-04-20 20:43:08.916  INFO 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2021-04-20 20:43:08.945 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:43:08.956 DEBUG 13888 --- [http-nio-8085-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:43:09.212 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:43:09.224 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-20 20:43:09.268 DEBUG 13888 --- [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:43:13.791 DEBUG 13888 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : PATCH "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5/a9cd9626-fe08-402b-adf0-d60bb7a8fb36", parameters={}
+2021-04-20 20:43:13.793 DEBUG 13888 --- [http-nio-8085-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#updateVote(UUID, UUID)
+2021-04-20 20:43:14.047 DEBUG 13888 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:43:14.048 DEBUG 13888 --- [http-nio-8085-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [true]
+2021-04-20 20:43:14.053 DEBUG 13888 --- [http-nio-8085-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-20 20:43:23.930 DEBUG 13888 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-20 20:43:23.931 DEBUG 13888 --- [http-nio-8085-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getPosts(UUID)
+2021-04-20 20:43:23.936 DEBUG 13888 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-20 20:43:23.936 DEBUG 13888 --- [http-nio-8085-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-20 20:43:23.939 DEBUG 13888 --- [http-nio-8085-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

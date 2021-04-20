@@ -34,7 +34,7 @@ public class BlogPost extends Auditable<UUID>{
 	private UUID id;
 	private String title;
 	private String post;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "blog_user_id")
 	private BlogUser user;
 	@OneToMany(mappedBy="post", fetch = FetchType.EAGER)

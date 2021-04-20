@@ -17,7 +17,7 @@ import com.mazhar.microblog.model.Vote;
  */
 public interface VoteRepository extends JpaRepository<Vote, UUID>{
 	
-	@Query(value = "SELECT COUNT(vote_id) FROM vote WHERE post_id =:post_id", nativeQuery = true)
+	@Query(value = "SELECT COUNT(vote_id) FROM vote WHERE post_id =:post_id AND vote=true", nativeQuery = true)
 	public long getVotesOfPost(@Param("post_id") UUID postId);
 	
 	@Query(value = "SELECT * FROM vote WHERE voter_id =:voter_id", nativeQuery = true)

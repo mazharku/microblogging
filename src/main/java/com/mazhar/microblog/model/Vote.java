@@ -31,7 +31,7 @@ public class Vote extends Auditable<UUID>{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "vote_id", nullable = false)
 	private UUID id;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 	@JoinColumn(name = "voter_id")
 	private BlogUser voter;
 	@ManyToOne

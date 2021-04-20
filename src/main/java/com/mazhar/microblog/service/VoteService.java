@@ -3,15 +3,16 @@
  */
 package com.mazhar.microblog.service;
 
-import java.util.UUID;
-
-import org.springframework.stereotype.Service;
-
 import com.mazhar.microblog.exception.ResourceNotFound;
 import com.mazhar.microblog.model.BlogPost;
+import com.mazhar.microblog.model.BlogUser;
 import com.mazhar.microblog.model.Vote;
 import com.mazhar.microblog.repository.PostRepository;
+import com.mazhar.microblog.repository.UserRespository;
 import com.mazhar.microblog.repository.VoteRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 /**
  * @author mazhar
@@ -20,27 +21,38 @@ import com.mazhar.microblog.repository.VoteRepository;
 @Service
 public class VoteService {
 
+	private UserRespository userRepository;
 	private VoteRepository repository;
 	private PostRepository postRepository;
-	
 
-	public VoteService(VoteRepository repository, PostRepository postRepository) {
+	public VoteService(UserRespository userRepository, VoteRepository repository, PostRepository postRepository) {
+		this.userRepository = userRepository;
 		this.repository = repository;
 		this.postRepository = postRepository;
 	}
-	
+
+
 	public int totalNumberOfVoteOfPost(UUID postId) {
 		return (int) repository.getVotesOfPost(postId);
 	}
 	
 	public boolean voteAPost(UUID postID, UUID voterID) throws ResourceNotFound {
-		BlogPost post = postRepository.findById(postID).orElseThrow(()-> new ResourceNotFound("No post found"));
+		BlogUser user = userRepository.findById(voterID).orElseThrow(() -> new ResourceNotFound("No user found"));
+		BlogPost post = postRepository.findById(postID).orElseThrow(() -> new ResourceNotFound("No post found"));
 		Vote vote = repository.getVoteOfUser(voterID);
-		return updateVote(postID,voterID, vote!=null);
+		if (vote == null) {
+			Vote v = new Vote();
+			v.setPost(post);
+			v.setVoter(user);
+			v.setVote(true);
+			repository.save(v);
+		} else {
+			vote.setVote(!vote.isVote());
+			repository.save(vote);
+		}
+
+		return true;
 		
 	}
 	
-   private boolean  updateVote(UUID postID, UUID voterID, boolean isVoted) {
-	   return repository.updateVote(isVoted, voterID, postID);
-   }
 }
