@@ -19,3 +19,9 @@ Make sure a Liquibase changelog is present at the configured path.
 2021-04-20 10:46:33.143 DEBUG 15404 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
 2021-04-20 10:46:33.175 DEBUG 15404 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
 2021-04-20 10:46:33.196 DEBUG 15404 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-20 14:51:17.553  WARN 3440 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-20 14:51:17.753 DEBUG 3440 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2021-04-20 14:51:18.376 DEBUG 3440 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-20 14:51:18.469 DEBUG 3440 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-20 14:51:18.510 DEBUG 3440 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-20 14:51:18.551 DEBUG 3440 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice

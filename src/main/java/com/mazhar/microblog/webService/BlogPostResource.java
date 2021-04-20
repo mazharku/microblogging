@@ -38,7 +38,7 @@ public class BlogPostResource {
 	private BlogPostService service;
 
 	@Autowired
-	public void setInventoryCrudService(BlogPostService service) {
+	public void setBlogPostService(BlogPostService service) {
 		this.service = service;
 	}
 

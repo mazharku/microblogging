@@ -5,8 +5,6 @@ package com.mazhar.microblog.service;
 
 import java.util.UUID;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mazhar.microblog.exception.ResourceNotFound;
@@ -38,11 +36,11 @@ public class VoteService {
 	public boolean voteAPost(UUID postID, UUID voterID) throws ResourceNotFound {
 		BlogPost post = postRepository.findById(postID).orElseThrow(()-> new ResourceNotFound("No post found"));
 		Vote vote = repository.getVoteOfUser(voterID);
-		return UpdateVote(postID,voterID, vote!=null);
+		return updateVote(postID,voterID, vote!=null);
 		
 	}
 	
-   private boolean  UpdateVote(UUID postID, UUID voterID, boolean isVoted) {
+   private boolean  updateVote(UUID postID, UUID voterID, boolean isVoted) {
 	   return repository.updateVote(isVoted, voterID, postID);
    }
 }
