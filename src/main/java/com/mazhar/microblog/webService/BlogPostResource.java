@@ -13,13 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.mazhar.microblog.model.BlogPost;
 import com.mazhar.microblog.model.dto.PostDTO;
@@ -30,6 +24,7 @@ import com.mazhar.microblog.util.AppResponse;
  * @author mazhar
  *
  */
+@CrossOrigin
 @RestController
 @RequestMapping(path = ROOT_PATH + "posts", produces = { "application/json" })
 public class BlogPostResource {
@@ -43,9 +38,9 @@ public class BlogPostResource {
 	}
 
 	@PostMapping("/")
-	ResponseEntity<?> createPost(@RequestBody BlogPost category) {
+	ResponseEntity<?> createPost(@RequestBody BlogPost post) {
 		try {
-			service.createPost(category);
+			service.createPost(post);
 			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
 		} catch (Exception e) {
 			log.error(e.getMessage());

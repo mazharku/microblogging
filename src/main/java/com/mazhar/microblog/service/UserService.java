@@ -20,6 +20,7 @@ public class UserService {
 	private UserRespository repository;
 	
 	public boolean createUser(BlogUser user)  {
+		user.setActive(true);
 		repository.save(user);
 		return true;
 	}

@@ -31,6 +31,7 @@ public class BlogUser extends Auditable<UUID>{
 	private String email;
 	@Column(name = "blog_user_name")
 	private String userName;
+	private String password;
 	private String gender;
 	private Date dob;
 	private boolean isActive;
