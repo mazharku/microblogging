@@ -13,12 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.mazhar.microblog.model.Comment;
 import com.mazhar.microblog.service.CommentService;
@@ -28,6 +23,7 @@ import com.mazhar.microblog.util.AppResponse;
  * @author mazhar
  *
  */
+@CrossOrigin
 @RestController
 @RequestMapping(path = ROOT_PATH + "comments", produces = { "application/json" })
 public class BlogCommentResource {
@@ -44,10 +40,10 @@ public class BlogCommentResource {
 		return new ResponseEntity<Object>(service.getAllComments(postId), new HttpHeaders(), HttpStatus.OK);
 	}
 	 
-	@PostMapping("/")
-	ResponseEntity<?> makeAComment(@RequestBody Comment comment) {
+	@PostMapping("/{post}")
+	ResponseEntity<?> makeAComment(@PathVariable(name = "post") UUID postId, @RequestBody Comment comment) {
 		try {
-			service.commentAPost(comment);
+			service.commentAPost(comment, postId);
 			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
 		} catch (Exception e) {
 			log.error(e.getMessage());

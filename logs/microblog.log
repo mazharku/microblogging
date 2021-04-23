@@ -1,203 +1,70 @@
-2021-04-22 00:01:47.891  INFO 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-22 00:01:47.900 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2021-04-22 00:01:47.901 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2021-04-22 00:01:47.902 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2021-04-22 00:01:47.906 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@b2b3a40
-2021-04-22 00:01:48.090 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4670caf6
-2021-04-22 00:01:48.091 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2021-04-22 00:01:48.095  INFO 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 195 ms
-2021-04-22 00:01:48.150 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts", parameters={}
-2021-04-22 00:01:48.166 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
-2021-04-22 00:01:48.502 DEBUG 5352 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 403 FORBIDDEN
-2021-04-22 00:03:01.137 DEBUG 5352 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:03:01.143 DEBUG 5352 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:03:01.260 DEBUG 5352 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@735e1ab5]
-2021-04-22 00:03:06.405 ERROR 5352 --- [http-nio-8082-exec-3] c.m.m.webService.BlogPostResource        : Unable to find com.mazhar.microblog.model.Comment with id 3fa85f64-5717-4562-b3fc-2c963f66afa6; nested exception is javax.persistence.EntityNotFoundException: Unable to find com.mazhar.microblog.model.Comment with id 3fa85f64-5717-4562-b3fc-2c963f66afa6
-2021-04-22 00:03:06.418 DEBUG 5352 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
-2021-04-22 00:03:06.430 DEBUG 5352 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=false, message=Unable to find com.mazhar.microblog.model.Comment with id 3fa85f64-5717-4562- (truncated)...]
-2021-04-22 00:03:06.460 DEBUG 5352 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:03:35.406 DEBUG 5352 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:03:35.407 DEBUG 5352 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:03:35.411 DEBUG 5352 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 403 FORBIDDEN
-2021-04-22 00:03:41.896 DEBUG 5352 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:03:41.897 DEBUG 5352 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:03:41.903 DEBUG 5352 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 403 FORBIDDEN
-2021-04-22 00:05:36.677 DEBUG 5352 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:05:36.678 DEBUG 5352 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:05:36.680 DEBUG 5352 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 403 FORBIDDEN
-2021-04-22 00:06:12.394 DEBUG 5352 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:06:12.396 DEBUG 5352 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:06:12.399 DEBUG 5352 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 403 FORBIDDEN
-2021-04-22 00:09:05.727  WARN 9364 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-22 00:09:06.047 DEBUG 9364 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
-2021-04-22 00:09:06.932 DEBUG 9364 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2021-04-22 00:09:07.124 DEBUG 9364 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
-2021-04-22 00:09:07.246 DEBUG 9364 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
-2021-04-22 00:09:07.273 DEBUG 9364 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2021-04-22 00:10:16.717  INFO 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-04-22 00:10:16.721 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2021-04-22 00:10:16.723 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2021-04-22 00:10:16.724 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2021-04-22 00:10:16.726 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@548051d7
-2021-04-22 00:10:16.727 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1b250e51
-2021-04-22 00:10:16.728 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2021-04-22 00:10:16.729  INFO 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2021-04-22 00:10:16.750 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:10:16.760 DEBUG 9364 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:10:16.782 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:10:16.798 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:10:16.800 DEBUG 9364 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:10:16.897 DEBUG 9364 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@687ebdbb]
-2021-04-22 00:11:29.452  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s10ms499µs).
-2021-04-22 00:11:53.014 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:11:53.024 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:11:53.051 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:12:31.273 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:12:31.276 DEBUG 9364 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:12:31.282 DEBUG 9364 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@de964f]
-2021-04-22 00:12:41.521 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:12:41.523 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:12:41.527 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:17:28.628 DEBUG 9364 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:17:28.629 DEBUG 9364 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:17:28.639 DEBUG 9364 --- [http-nio-8082-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@7ae25459]
-2021-04-22 00:17:59.910  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m442ms879µs300ns).
-2021-04-22 00:17:59.941 DEBUG 9364 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:17:59.943 DEBUG 9364 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:17:59.948 DEBUG 9364 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:20:27.244 DEBUG 9364 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:20:27.247 DEBUG 9364 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:20:27.253 DEBUG 9364 --- [http-nio-8082-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@44845ced]
-2021-04-22 00:28:47.056  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m47s128ms626µs100ns).
-2021-04-22 00:28:47.062 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:28:47.067 DEBUG 9364 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:28:47.071 DEBUG 9364 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:28:47.072 DEBUG 9364 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:28:47.076 DEBUG 9364 --- [http-nio-8082-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@4d9b7b58]
-2021-04-22 00:28:47.076 DEBUG 9364 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:28:54.191 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:28:54.192 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:28:54.196 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:52:45.153 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/posts/", parameters={}
-2021-04-22 00:52:45.155 DEBUG 9364 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:52:45.159 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:52:45.166 DEBUG 9364 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:52:45.168 DEBUG 9364 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:52:45.172 DEBUG 9364 --- [http-nio-8082-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@9e23dbf]
-2021-04-22 00:53:04.493  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47s378ms990µs400ns).
-2021-04-22 00:53:04.507 DEBUG 9364 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:53:04.509 DEBUG 9364 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:53:04.512 DEBUG 9364 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:54:07.493 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:54:07.495 DEBUG 9364 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:54:07.499 DEBUG 9364 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@4f24621f]
-2021-04-22 00:55:30.345  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m25s849ms648µs500ns).
-2021-04-22 00:55:30.355 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:55:30.357 DEBUG 9364 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:55:30.363 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:55:30.364 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:55:30.367 DEBUG 9364 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@4471f2dc]
-2021-04-22 00:55:37.053 DEBUG 9364 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:55:37.075 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:55:37.076 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:55:37.079 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 00:57:48.781 DEBUG 9364 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 00:57:48.784 DEBUG 9364 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 00:57:48.787 DEBUG 9364 --- [http-nio-8082-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@7a9ad323]
-2021-04-22 00:57:55.358 DEBUG 9364 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 00:57:55.359 DEBUG 9364 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 00:57:55.362 DEBUG 9364 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 01:01:21.901 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 01:01:21.903 DEBUG 9364 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 01:01:21.907 DEBUG 9364 --- [http-nio-8082-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@3effa6fe]
-2021-04-22 01:01:41.659 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 01:01:41.659 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 01:01:41.664 DEBUG 9364 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 01:09:31.383 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 01:09:31.385 DEBUG 9364 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 01:09:31.388 DEBUG 9364 --- [http-nio-8082-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@93916d1]
-2021-04-22 01:09:50.275 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 01:09:50.276 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 01:09:50.280 DEBUG 9364 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 01:11:34.979 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 01:11:34.980 DEBUG 9364 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 01:11:34.984 DEBUG 9364 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@6349672d]
-2021-04-22 01:12:52.532  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s269ms310µs500ns).
-2021-04-22 01:12:52.545 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 01:12:52.546 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 01:12:52.549 DEBUG 9364 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 01:17:21.785 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/posts/", parameters={}
-2021-04-22 01:17:21.787 DEBUG 9364 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#createPost(BlogPost)
-2021-04-22 01:17:21.792 DEBUG 9364 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.mazhar.microblog.model.BlogPost@6ba4e156]
-2021-04-22 01:18:14.578  WARN 9364 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m22s34ms523µs500ns).
-2021-04-22 01:18:14.594 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
-2021-04-22 01:18:14.595 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{status=true, message=Resource created successfully!}]
-2021-04-22 01:18:14.597 DEBUG 9364 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2021-04-22 15:49:09.247 ERROR 13968 --- [main] liquibase.changelog.ChangeSet            : Change Set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated) failed.  Error: ERROR: relation "microblog.BlogUser" does not exist [Failed SQL: (0) ALTER TABLE microblog."BlogUser" ADD password VARCHAR]
-2021-04-22 15:49:09.263  WARN 13968 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
-     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.BlogUser" does not exist [Failed SQL: (0) ALTER TABLE microblog."BlogUser" ADD password VARCHAR]
-2021-04-22 15:49:09.459 ERROR 13968 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
-     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.BlogUser" does not exist [Failed SQL: (0) ALTER TABLE microblog."BlogUser" ADD password VARCHAR]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
-	at com.mazhar.microblog.Application.main(Application.java:10) ~[classes/:na]
-Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
-     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.BlogUser" does not exist [Failed SQL: (0) ALTER TABLE microblog."BlogUser" ADD password VARCHAR]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:659) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:97) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:201) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.Liquibase.update(Liquibase.java:178) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:368) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:316) ~[liquibase-core-3.10.3.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.6.jar:5.3.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.6.jar:5.3.6]
-	... 19 common frames omitted
-Caused by: liquibase.exception.DatabaseException: ERROR: relation "microblog.BlogUser" does not exist [Failed SQL: (0) ALTER TABLE microblog."BlogUser" ADD password VARCHAR]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:430) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:87) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:159) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258) ~[liquibase-core-3.10.3.jar:na]
-	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:622) ~[liquibase-core-3.10.3.jar:na]
-	... 27 common frames omitted
-Caused by: org.postgresql.util.PSQLException: ERROR: relation "microblog.BlogUser" does not exist
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284) ~[postgresql-42.2.19.jar:42.2.19]
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279) ~[postgresql-42.2.19.jar:42.2.19]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
-	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:426) ~[liquibase-core-3.10.3.jar:na]
-	... 32 common frames omitted
-
-2021-04-22 15:50:12.598  WARN 8676 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2021-04-22 15:50:12.914 DEBUG 8676 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
-2021-04-22 15:50:13.622 DEBUG 8676 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2021-04-22 15:50:13.743 DEBUG 8676 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
-2021-04-22 15:50:13.794 DEBUG 8676 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
-2021-04-22 15:50:13.834 DEBUG 8676 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 00:00:49.223 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/", parameters={}
+2021-04-24 00:00:49.236 DEBUG 9580 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPosts()
+2021-04-24 00:00:49.253 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.254 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.PostDTO@1a780ca7, com.mazhar.microblog.model.dto.PostDTO@3eaaa413]]
+2021-04-24 00:00:49.257 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.558 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:00:49.559 DEBUG 9580 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:00:49.564 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.564 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:00:49.564 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 00:00:49.565 DEBUG 9580 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-24 00:00:49.565 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.569 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:00:49.569 DEBUG 9580 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:00:49.575 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.577 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 00:00:49.578 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.580 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.580 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@5c9eaf5f, com.mazhar.microblog.model.dto.CommentDTO@116ed (truncated)...]
+2021-04-24 00:00:49.582 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.593 DEBUG 9580 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:00:49.594 DEBUG 9580 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:00:49.597 DEBUG 9580 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:00:49.597 DEBUG 9580 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-24 00:00:49.599 DEBUG 9580 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.599 DEBUG 9580 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 00:00:49.600 DEBUG 9580 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.606 DEBUG 9580 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:00:49.607 DEBUG 9580 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:00:49.607 DEBUG 9580 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.609 DEBUG 9580 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@830ed4]]
+2021-04-24 00:00:49.610 DEBUG 9580 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:00:49.613 DEBUG 9580 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:00:49.613 DEBUG 9580 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 00:00:49.614 DEBUG 9580 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.251 DEBUG 9580 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/", parameters={}
+2021-04-24 00:01:15.252 DEBUG 9580 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPosts()
+2021-04-24 00:01:15.278 DEBUG 9580 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.280 DEBUG 9580 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.PostDTO@18e4d5f6, com.mazhar.microblog.model.dto.PostDTO@2c483ee4]]
+2021-04-24 00:01:15.281 DEBUG 9580 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.502 DEBUG 9580 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:01:15.502 DEBUG 9580 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:01:15.511 DEBUG 9580 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.512 DEBUG 9580 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 00:01:15.513 DEBUG 9580 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.526 DEBUG 9580 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:01:15.529 DEBUG 9580 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:01:15.532 DEBUG 9580 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.533 DEBUG 9580 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 00:01:15.534 DEBUG 9580 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.534 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/e9708bb5-712f-42a4-864c-491d3d8cf2c5", parameters={}
+2021-04-24 00:01:15.535 DEBUG 9580 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-24 00:01:15.551 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.551 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@4aae8ce3, com.mazhar.microblog.model.dto.CommentDTO@4512e (truncated)...]
+2021-04-24 00:01:15.553 DEBUG 9580 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.569 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:01:15.572 DEBUG 9580 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:01:15.576 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:01:15.577 DEBUG 9580 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-24 00:01:15.578 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.579 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 00:01:15.580 DEBUG 9580 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.598 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.598 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@4004eab1]]
+2021-04-24 00:01:15.599 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/5ebddcbb-be9d-442c-addb-d53ca8bb46b2", parameters={}
+2021-04-24 00:01:15.599 DEBUG 9580 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 00:01:15.599 DEBUG 9580 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 00:01:15.609 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 00:01:15.609 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 00:01:15.610 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

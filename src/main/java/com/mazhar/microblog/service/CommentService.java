@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.mazhar.microblog.exception.ResourceNotFound;
+import com.mazhar.microblog.model.BlogPost;
+import com.mazhar.microblog.repository.PostRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -22,14 +25,18 @@ import com.mazhar.microblog.repository.CommentRepository;
 public class CommentService {
 
 	private CommentRepository repository;
+	private PostRepository postRepository;
 	private ModelMapper modelMapper;
 
-	public CommentService(CommentRepository repository, ModelMapper modelMapper) {
+	public CommentService(CommentRepository repository,PostRepository postRepository, ModelMapper modelMapper) {
 		this.repository = repository;
+		this.postRepository = postRepository;
 		this.modelMapper = modelMapper;
 	}
 
-	public boolean commentAPost(Comment comment) {
+	public boolean commentAPost(Comment comment, UUID postId) throws ResourceNotFound {
+		BlogPost post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFound("No post found!"));
+		comment.setPost(post);
 		repository.save(comment);
 		return true;
 	}
