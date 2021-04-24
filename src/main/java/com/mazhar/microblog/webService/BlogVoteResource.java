@@ -43,8 +43,15 @@ public class BlogVoteResource {
 
 	@GetMapping("/{post_id}")
 	ResponseEntity<?> getVoteCounts(@PathVariable(name = "post_id") UUID postId) {
-		int vote = service.totalNumberOfVoteOfPost(postId);
-		return new ResponseEntity<Object>(vote, new HttpHeaders(), HttpStatus.OK);
+		try {
+			int vote = service.totalNumberOfVoteOfPost(postId);
+			return new ResponseEntity<Object>(vote, new HttpHeaders(), HttpStatus.OK);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
+					HttpStatus.OK);
+		}
+
 	}
 
 	@PutMapping("/{post_id}")
