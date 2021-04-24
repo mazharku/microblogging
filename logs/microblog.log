@@ -68,3 +68,307 @@
 2021-04-24 00:01:15.609 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
 2021-04-24 00:01:15.609 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
 2021-04-24 00:01:15.610 DEBUG 9580 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 01:20:22.839 ERROR 1888 --- [main] liquibase.changelog.ChangeSet            : Change Set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated) failed.  Error: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:20:24.764  WARN 1888 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:20:27.705 ERROR 1888 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.mazhar.microblog.Application.main(Application.java:10) ~[classes/:na]
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:659) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:97) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:201) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:178) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:368) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:316) ~[liquibase-core-3.10.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 19 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:430) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:87) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:159) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:622) ~[liquibase-core-3.10.3.jar:na]
+	... 27 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "microblog.blog_user" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279) ~[postgresql-42.2.19.jar:42.2.19]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:426) ~[liquibase-core-3.10.3.jar:na]
+	... 32 common frames omitted
+
+2021-04-24 01:21:32.293 ERROR 14872 --- [main] liquibase.changelog.ChangeSet            : Change Set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated) failed.  Error: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:21:34.606  WARN 14872 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:21:34.700 ERROR 14872 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.mazhar.microblog.Application.main(Application.java:10) ~[classes/:na]
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:659) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:97) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:201) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:178) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:368) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:316) ~[liquibase-core-3.10.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 19 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:430) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:87) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:159) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:622) ~[liquibase-core-3.10.3.jar:na]
+	... 27 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "microblog.blog_user" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279) ~[postgresql-42.2.19.jar:42.2.19]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:426) ~[liquibase-core-3.10.3.jar:na]
+	... 32 common frames omitted
+
+2021-04-24 01:23:55.730 ERROR 5716 --- [main] liquibase.changelog.ChangeSet            : Change Set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated) failed.  Error: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:23:57.293  WARN 5716 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+2021-04-24 01:23:57.416 ERROR 5716 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.mazhar.microblog.Application.main(Application.java:10) ~[classes/:na]
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db/changelog/changelog-1.0.xml::1618643594627-1::mazhar (generated):
+     Reason: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:659) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:97) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:201) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.Liquibase.update(Liquibase.java:178) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:368) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:316) ~[liquibase-core-3.10.3.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 19 common frames omitted
+Caused by: liquibase.exception.DatabaseException: ERROR: relation "microblog.blog_user" does not exist [Failed SQL: (0) ALTER TABLE microblog.blog_user ADD password VARCHAR]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:430) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:87) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:159) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258) ~[liquibase-core-3.10.3.jar:na]
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:622) ~[liquibase-core-3.10.3.jar:na]
+	... 27 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "microblog.blog_user" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284) ~[postgresql-42.2.19.jar:42.2.19]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279) ~[postgresql-42.2.19.jar:42.2.19]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:426) ~[liquibase-core-3.10.3.jar:na]
+	... 32 common frames omitted
+
+2021-04-24 01:26:33.648  WARN 6976 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 01:26:34.059 DEBUG 6976 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 01:26:34.844 DEBUG 6976 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 01:26:35.001 DEBUG 6976 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 01:26:35.084 DEBUG 6976 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 01:26:35.118 DEBUG 6976 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 01:34:40.182  WARN 2360 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 01:34:40.455 DEBUG 2360 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 01:34:41.052 DEBUG 2360 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 01:34:41.165 DEBUG 2360 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 01:34:41.216 DEBUG 2360 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 01:34:41.238 DEBUG 2360 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 02:02:32.146 DEBUG 5180 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@79e18e38
+2021-04-24 02:03:29.033  WARN 5180 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 02:03:29.700 DEBUG 5180 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 02:03:31.555 DEBUG 5180 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 02:03:32.637 DEBUG 5180 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 02:03:32.863 DEBUG 5180 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 02:03:32.949 DEBUG 5180 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 02:10:46.533 DEBUG 7072 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@79e18e38
+2021-04-24 02:11:39.075  WARN 7072 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 02:11:40.348 DEBUG 7072 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 02:11:44.380 DEBUG 7072 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 02:11:44.675 DEBUG 7072 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 02:11:44.915 DEBUG 7072 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 02:11:45.003 DEBUG 7072 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 02:11:48.885 DEBUG 7072 --- [SpringContextShutdownHook] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@79e18e38, started on Sat Apr 24 02:10:46 BDT 2021
+2021-04-24 03:04:54.870  WARN 11456 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 03:04:55.163 DEBUG 11456 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 03:04:55.769 DEBUG 11456 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 03:04:55.903 DEBUG 11456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 03:04:55.953 DEBUG 11456 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 03:04:55.971 DEBUG 11456 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 03:05:05.108  INFO 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-24 03:05:05.110 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-04-24 03:05:05.111 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-04-24 03:05:05.111 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-04-24 03:05:05.115 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2b7e07e0
+2021-04-24 03:05:05.116 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3a7243e1
+2021-04-24 03:05:05.131 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-04-24 03:05:05.131  INFO 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 21 ms
+2021-04-24 03:05:05.182 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/posts/", parameters={}
+2021-04-24 03:05:05.200 DEBUG 11456 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogPostResource#getPosts()
+2021-04-24 03:05:07.203 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:05:07.212 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.PostDTO@7fa0a465]]
+2021-04-24 03:05:07.318 DEBUG 11456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:05:07.344 DEBUG 11456 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:05:07.347 DEBUG 11456 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 03:05:07.377 DEBUG 11456 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/comments/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:05:07.378 DEBUG 11456 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogCommentResource#getCommentsOfPost(UUID)
+2021-04-24 03:05:07.873 DEBUG 11456 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:05:07.874 DEBUG 11456 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 03:05:07.878 DEBUG 11456 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:05:07.882 DEBUG 11456 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:05:07.883 DEBUG 11456 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 03:05:08.142 DEBUG 11456 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:05:08.143 DEBUG 11456 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [0]
+2021-04-24 03:05:08.144 DEBUG 11456 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:05:09.472 DEBUG 11456 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:05:09.473 DEBUG 11456 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.mazhar.microblog.model.dto.CommentDTO@6aca599d]]
+2021-04-24 03:05:09.475 DEBUG 11456 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:05:13.733 DEBUG 11456 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : OPTIONS "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:05:13.734 DEBUG 11456 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#updateVote(UUID, UUID)
+2021-04-24 03:05:13.739 DEBUG 11456 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:05:13.768 DEBUG 11456 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : PUT "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={masked}
+2021-04-24 03:05:13.769 DEBUG 11456 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#updateVote(UUID, UUID)
+2021-04-24 03:06:25.527 DEBUG 11456 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:06:25.539 DEBUG 11456 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [true]
+2021-04-24 03:06:25.554 DEBUG 11456 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:06:25.663 DEBUG 11456 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:06:25.666 DEBUG 11456 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 03:06:25.937 DEBUG 11456 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:06:25.938 DEBUG 11456 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 03:06:25.943 DEBUG 11456 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 03:06:25.986 DEBUG 11456 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 03:06:26.008 DEBUG 11456 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 03:06:26.275 DEBUG 11456 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/plain, */*] and supported [application/json]
+2021-04-24 03:06:26.277 DEBUG 11456 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 03:06:26.282 DEBUG 11456 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 14:53:25.105  WARN 10864 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-24 14:53:26.808 DEBUG 10864 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 20 mappings in 'requestMappingHandlerMapping'
+2021-04-24 14:53:27.578 DEBUG 10864 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-24 14:53:27.701 DEBUG 10864 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-04-24 14:53:27.809 DEBUG 10864 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/**, /webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-24 14:53:27.839 DEBUG 10864 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-24 14:53:57.501  INFO 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-24 14:53:57.503 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-04-24 14:53:57.503 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-04-24 14:53:57.503 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-04-24 14:53:57.511 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5d1206e0
+2021-04-24 14:53:57.515 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@72ecb71d
+2021-04-24 14:53:57.518 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-04-24 14:53:57.521  INFO 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2021-04-24 14:53:57.566 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/ui", parameters={}
+2021-04-24 14:53:57.582 DEBUG 10864 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2021-04-24 14:53:57.625 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-24 14:53:57.670 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.UiConfiguration@69757e4c]
+2021-04-24 14:53:57.701 DEBUG 10864 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 14:53:57.706 DEBUG 10864 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/security", parameters={}
+2021-04-24 14:53:57.706 DEBUG 10864 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2021-04-24 14:53:57.711 DEBUG 10864 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-24 14:53:57.717 DEBUG 10864 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.SecurityConfiguration@1364109e]
+2021-04-24 14:53:57.721 DEBUG 10864 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 14:53:57.734 DEBUG 10864 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources", parameters={}
+2021-04-24 14:53:57.735 DEBUG 10864 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2021-04-24 14:53:57.737 DEBUG 10864 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-24 14:53:57.739 DEBUG 10864 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@53f30494]]
+2021-04-24 14:53:57.746 DEBUG 10864 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 14:53:57.809 DEBUG 10864 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2021-04-24 14:53:57.811 DEBUG 10864 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.oas.web.OpenApiControllerWebMvc#getDocumentation(String, HttpServletRequest)
+2021-04-24 14:53:58.159 DEBUG 10864 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, */*] and supported [application/json, application/hal+json]
+2021-04-24 14:53:58.164 DEBUG 10864 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@401a96ed]
+2021-04-24 14:53:58.167 DEBUG 10864 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-04-24 14:54:25.285 DEBUG 10864 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/votes/cad24d17-15e6-4659-914d-43658100d53b", parameters={}
+2021-04-24 14:54:25.289 DEBUG 10864 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.mazhar.microblog.webService.BlogVoteResource#getVoteCounts(UUID)
+2021-04-24 14:54:26.469 DEBUG 10864 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-04-24 14:54:26.472 DEBUG 10864 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [1]
+2021-04-24 14:54:26.475 DEBUG 10864 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
