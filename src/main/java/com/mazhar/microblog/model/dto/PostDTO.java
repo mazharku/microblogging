@@ -19,6 +19,7 @@ public class PostDTO {
 
 	private UUID id;
 	private String userName;
+	private UUID userId;
 	private String title;
 	private String post;
 	private List<CommentDTO> comments;
