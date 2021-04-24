@@ -36,7 +36,7 @@ public class BlogVoteResource {
 	}
 
 	@PostMapping("/{post_id}")
-	ResponseEntity<?> isLikedByCurrentUser(@PathVariable(name = "post_id") UUID postId,@RequestParam(name="user") UUID currentUser ) {
+	ResponseEntity<?> isLikedByCurrentUser(@PathVariable(name = "post_id") UUID postId,@RequestParam(name="user" , required = false) UUID currentUser ) {
 		boolean vote = service.isLikedByCurrentUser(postId, currentUser);
 		return new ResponseEntity<Object>(vote, new HttpHeaders(), HttpStatus.OK);
 	}
