@@ -47,7 +47,7 @@ public class UserService {
     }
 
     public boolean dologout(UUID userId) throws Exception {
-        BlogUser user = repository.findById(userId).orElseThrow(() -> new ResourceNotFound("No Valid User Find"));
+        BlogUser user = repository.findById(userId).orElseThrow(() -> new ResourceNotFound("No Valid User found!"));
         user.setActive(false);
         repository.save(user);
         return true;
