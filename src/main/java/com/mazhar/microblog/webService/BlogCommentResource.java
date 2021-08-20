@@ -7,6 +7,7 @@ import static com.mazhar.microblog.util.AppConstant.ROOT_PATH;
 
 import java.util.UUID;
 
+import com.mazhar.microblog.exception.ResourceNotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,6 @@ import com.mazhar.microblog.util.AppResponse;
 @RestController
 @RequestMapping(path = ROOT_PATH + "comments", produces = { "application/json" })
 public class BlogCommentResource {
-	private Logger log = LoggerFactory.getLogger(BlogPostResource.class);
 	private CommentService service;
 
 	@Autowired
@@ -41,14 +41,8 @@ public class BlogCommentResource {
 	}
 	 
 	@PostMapping("/{post}")
-	ResponseEntity<?> makeAComment(@PathVariable(name = "post") UUID postId, @RequestBody Comment comment) {
-		try {
+	ResponseEntity<?> makeAComment(@PathVariable(name = "post") UUID postId, @RequestBody Comment comment) throws ResourceNotFound {
 			service.commentAPost(comment, postId);
 			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
-					HttpStatus.OK);
-		}
 	}
 }

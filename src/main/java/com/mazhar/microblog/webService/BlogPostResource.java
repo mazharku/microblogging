@@ -7,6 +7,7 @@ import static com.mazhar.microblog.util.AppConstant.ROOT_PATH;
 
 import java.util.UUID;
 
+import com.mazhar.microblog.exception.ResourceNotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,6 @@ import com.mazhar.microblog.util.AppResponse;
 @RestController
 @RequestMapping(path = ROOT_PATH + "posts", produces = { "application/json" })
 public class BlogPostResource {
-
-	private Logger log = LoggerFactory.getLogger(BlogPostResource.class);
 	private BlogPostService service;
 
 	@Autowired
@@ -38,15 +37,9 @@ public class BlogPostResource {
 	}
 
 	@PostMapping("/")
-	ResponseEntity<?> createPost(@RequestBody BlogPost post) {
-		try {
+	ResponseEntity<?> createPost(@RequestBody BlogPost post) throws ResourceNotFound {
 			service.createPost(post);
 			return new ResponseEntity<Object>(AppResponse.resourceCreated(), new HttpHeaders(), HttpStatus.OK);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
-					HttpStatus.OK);
-		}
 	}
 
 	@GetMapping("/")
@@ -55,41 +48,20 @@ public class BlogPostResource {
 	}
 
 	@GetMapping("/{id}")
-	ResponseEntity<?> getPostById(@PathVariable(name = "id") UUID id) {
-		try {
+	ResponseEntity<?> getPostById(@PathVariable(name = "id") UUID id) throws ResourceNotFound {
 			PostDTO category = (PostDTO) service.getPostById(id);
 			return new ResponseEntity<Object>(category, new HttpHeaders(), HttpStatus.OK);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
-					HttpStatus.OK);
-		}
 	}
 
 	@GetMapping("/user/{userid}")
-	ResponseEntity<?> getPostByUser(@PathVariable(name = "userid") UUID userid) {
-		try {
-			
+	ResponseEntity<?> getPostByUser(@PathVariable(name = "userid") UUID userid) throws ResourceNotFound {
 			return new ResponseEntity<Object>(service.getPostsByUser(userid), new HttpHeaders(), HttpStatus.OK);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
-					HttpStatus.OK);
-		}
 	}
 
-	
 	@DeleteMapping("/{id}")
-	ResponseEntity<?> deletePost(@PathVariable(name = "id") UUID id) {
-		try {
+	ResponseEntity<?> deletePost(@PathVariable(name = "id") UUID id) throws ResourceNotFound {
 			service.delete(id);
 			return new ResponseEntity<Object>(AppResponse.operationSuccess(), new HttpHeaders(), HttpStatus.OK);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return new ResponseEntity<Object>(AppResponse.operationFail(e.getMessage()), new HttpHeaders(),
-					HttpStatus.OK);
-		}
-
 	}
 
 }
